@@ -7,7 +7,7 @@ public class Family {
     Integer parentId;
     String fio;
     Integer age;
-    Float cleverness;
+    Float score;
 
     String parentFio;
     String child;

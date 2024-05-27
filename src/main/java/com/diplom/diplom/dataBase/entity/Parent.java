@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Child")
+@Table(name = "Parent")
 public class Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -13,10 +13,9 @@ public class Evoker {
     @Autowired
     NlpService nlpService;
 
-
     @EventListener(ApplicationReadyEvent.class)
     public void evoke() {
-        //System.out.println(Double.valueOf(nlpService.sendToHandleNarration()));
+        //System.out.println(Double.valueOf(nlpService.sendToHandleTestNarration()));
         System.out.println("hi");
     }
 }
