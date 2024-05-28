@@ -13,5 +13,5 @@ public class Child {
     private Integer parentId;
     private String fio;
     private Integer age;
-    private Float cleverness;
+    private Float score;
 }
