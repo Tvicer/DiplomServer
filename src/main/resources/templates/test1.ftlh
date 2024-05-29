@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование</title>
+    <link rel="stylesheet" href="css/test1.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <button class="back-button" id="psyBackBtn" type="button" onclick="location.href='/psychologist'">Назад</button>
+            <input type="text" placeholder="ФИО ребёнка" id="fio">
+            <input type="text" placeholder="Возраст ребёнка" id="childAge">
+            <input type="text" placeholder="ФИО родителя" id="parentAge">
+            <input type="text" placeholder="Номер телефона родителя" id="telephone">
+            <input type="text" placeholder="Домашний адрес" id="address">
+        </div>
+        <div class="right-panel">
+            <div class="section image-section">
+                <div class="image-block">
+                    <img src="img/pic2.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+                <div class="image-block">
+                    <img src="img/pic1.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+                <div class="image-block">
+                    <img src="img/pic3.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+            </div>
+            <div class="section input-section">
+                <textarea class="input-textarea" rows="8" cols="100" id="tell1Area" ></textarea>
+                <button id="record-btn1">Записать голос</button>
+            </div>
+            <div class="section image-section">
+                <div class="image-block">
+                    <img src="img/pic2.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+                <div class="image-block">
+                    <img src="img/pic1.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+                <div class="image-block">
+                    <img src="img/pic3.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+            </div>
+            <div class="section input-section">
+                <textarea class="input-textarea" rows="8" cols="100" id="tell2Area" ></textarea>
+                <button id="record-btn2">Записать голос</button>
+            </div>
+            <div class="section image-section">
+                <div class="image-block">
+                    <img src="img/pic2.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+                <div class="image-block">
+                    <img src="img/pic1.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+                <div class="image-block">
+                    <img src="img/pic3.png" alt="Image">
+                    <input type="text" maxlength="1" >
+                </div>
+            </div>
+            <div class="section input-section">
+                <textarea class="input-textarea" rows="8" cols="100" id="tell3Area" ></textarea>
+                <button id="record-btn3">Записать голос</button>
+            </div>
+            <div class="section calc-section">
+                <button class="calc-button" id="sendButton">Рассчитать балл</button>
+                <input type="text" id="resultText">
+            </div>
+            <button id="endButton">Завершить тестирование</button>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/voice.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.diplom.diplom.nlp;
 
+import com.diplom.diplom.dataBase.entity.Child;
+import com.diplom.diplom.dataBase.repository.ChildRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,9 @@ import org.springframework.stereotype.Service;
 public class NlpService {
     @Autowired
     private final NlpFeignClient nlpFeignClient;
+
+    @Autowired
+    private final ChildRepository childRepository;
 
     public String sendToHandleTestNarration() {
         return nlpFeignClient.sendNarration(NlpFeignDto.builder()
@@ -23,7 +28,7 @@ public class NlpService {
                 .build());
     }
 
-    public String sendToHandleNarration(NlpFeignDto request) {
+    public String sendToHandleNarration(NlpClientDto request) {
         return nlpFeignClient.sendNarration(NlpFeignDto.builder()
                 .tell1(request.tell1)
                 .tell2(request.tell2)
@@ -34,5 +39,16 @@ public class NlpService {
                 .time2("21")
                 .time3("15")
                 .build());
+    }
+
+    public void sendToDb(NlpClientToDbDto request) {
+        Child child = new Child();
+        child.setFio(request.getFio());
+        child.setChildAge(request.getChildAge());
+        child.setParentAge(request.getParentAge());
+        child.setTelephone(request.getTelephone());
+        child.setAddress(request.getAddress());
+        child.setResult(request.getResult());
+        childRepository.save(child);
     }
 }

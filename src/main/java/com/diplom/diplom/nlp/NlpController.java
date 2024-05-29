@@ -22,12 +22,18 @@ public class NlpController {
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 
-    @PostMapping(path = "/send", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/sendToNlp", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity sendDataToNlp(@RequestBody @Validated NlpClientDto request) {
-        //return nlpService.sendToHandle1Narration(request.tell1);
+        var result = nlpService.sendToHandleNarration(request);
         var ans = new HashMap<String, String>();
-        ans.put("answer", "0.999");
+        ans.put("answer", result);
         return new ResponseEntity(ans, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/sendToDb", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity sendDataToDb(@RequestBody @Validated NlpClientToDbDto request) {
+        nlpService.sendToDb(request);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }

@@ -10,8 +10,10 @@ public class Child {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private Integer parentId;
     private String fio;
-    private Integer age;
-    private Float cleverness;
+    private String childAge;
+    private String parentAge;
+    private String telephone;
+    private String address;
+    private Float result;
 }
