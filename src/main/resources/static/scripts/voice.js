@@ -16,7 +16,7 @@ recordButton1.addEventListener('click', () => {
                 };
 
                 mediaRecorder.onstop = () => {
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
                     audioChunks = [];
                     saveAudio(audioBlob);
                 };
@@ -38,7 +38,7 @@ recordButton2.addEventListener('click', () => {
                 };
 
                 mediaRecorder.onstop = () => {
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
                     audioChunks = [];
                     saveAudio(audioBlob);
                 };
@@ -60,7 +60,7 @@ recordButton3.addEventListener('click', () => {
                 };
 
                 mediaRecorder.onstop = () => {
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
                     audioChunks = [];
                     saveAudio(audioBlob);
                 };
