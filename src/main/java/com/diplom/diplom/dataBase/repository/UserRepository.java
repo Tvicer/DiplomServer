@@ -1,8 +1,10 @@
-//package com.diplom.diplom.dataBase.repository;
-//
-//import com.diplom.diplom.dataBase.entity.User;
-//import org.springframework.data.jpa.repository.JpaRepository;
-//
-//public interface UserRepository extends JpaRepository<User, Long> {
-//    User findByEmail(String email);
-//}
+package com.diplom.diplom.dataBase.repository;
+
+import com.diplom.diplom.dataBase.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
+}
