@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(name = "voiceToText", url = "http://127.0.0.1:5000", configuration = FeignConfig.class)
 public interface VoiceToTextFeignClient {
-    @PostMapping(value = "/api/voiceTOText", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(value = "/api/voiceToText/send", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    String sendNarration(@RequestBody NlpFeignDto body);
+    String sendVoice(@RequestBody VoiceToTextDto body);
 }

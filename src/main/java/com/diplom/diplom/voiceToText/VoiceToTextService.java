@@ -12,11 +12,11 @@ public class VoiceToTextService {
     @Autowired
     private final VoiceToTextFeignClient voiceToTextFeignClient;
 
-    @Autowired
-    private final ChildRepository childRepository;
 
-    public String sendToHandleNarration(NlpClientDto request) {
-        return "";
+    public String sendToVoiceToText(VoiceToTextDto request) {
+        var voice = new VoiceToTextDto();
+        voice.setVoice(request.getVoice());
+        return voiceToTextFeignClient.sendVoice(voice);
     }
 
 }

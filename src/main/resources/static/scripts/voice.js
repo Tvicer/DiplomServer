@@ -4,6 +4,10 @@ let recordButton3 = document.getElementById('record-btn3');
 let mediaRecorder;
 let audioChunks = [];
 
+var tell1 = document.getElementById('tell1Area');
+var tell2 = document.getElementById('tell2Area');
+var tell3 = document.getElementById('tell3Area');
+
 recordButton1.addEventListener('click', () => {
     if (!mediaRecorder || mediaRecorder.state === 'inactive') {
         navigator.mediaDevices.getUserMedia({ audio: true })
@@ -19,6 +23,7 @@ recordButton1.addEventListener('click', () => {
                     const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
                     audioChunks = [];
                     saveAudio(audioBlob);
+                    sendAudioToAPI(audioBlob, tell1);
                 };
             });
     } else if (mediaRecorder.state === 'recording') {
@@ -41,6 +46,7 @@ recordButton2.addEventListener('click', () => {
                     const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
                     audioChunks = [];
                     saveAudio(audioBlob);
+                    sendAudioToAPI(audioBlob, tell2);
                 };
             });
     } else if (mediaRecorder.state === 'recording') {
@@ -63,6 +69,7 @@ recordButton3.addEventListener('click', () => {
                     const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
                     audioChunks = [];
                     saveAudio(audioBlob);
+                    sendAudioToAPI(audioBlob, tell3);
                 };
             });
     } else if (mediaRecorder.state === 'recording') {
@@ -75,22 +82,35 @@ function saveAudio(audioBlob) {
     const a = document.createElement('a');
     a.style.display = 'none';
     a.href = url;
-    a.download = 'recorded-audio.mp3';
+    a.download = 'recorded-audio.webm';
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
 }
 
 
-function sendAudioToAPI(audioBlob) {
+function sendAudioToAPI(audioBlob, tell) {
     const formData = new FormData();
-    formData.append('file', audioBlob, 'audio.wav');
+    formData.append('file', audioBlob, 'audio.mp3');
 
-    fetch('YOUR_REST_API_ENDPOINT', {
+    var data = {
+        voice: 'recorded-audio.webm'
+    };
+
+    console.log(JSON.stringify(data))
+
+    fetch('http://127.0.0.1:8080/voiceToText/send', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(response => {
+        response.json().then((value) => {
+                    tell.value = value.answer;
+                  })
+        })
     .then(data => {
         console.log('Success:', data);
     })

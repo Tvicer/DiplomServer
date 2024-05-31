@@ -1,13 +1,13 @@
 package com.diplom.diplom.voiceToText;
 
-import com.diplom.diplom.nlp.NlpClientDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @Controller
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -17,8 +17,13 @@ public class VoiceToTextController {
     private VoiceToTextService voiceToTextService;
 
     @PostMapping(path = "/send", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity sendData(@RequestBody @Validated NlpClientDto request) {
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity sendData(@RequestBody VoiceToTextDto request) throws InterruptedException {
+        Thread.sleep(1000);
+        var result = voiceToTextService.sendToVoiceToText(request);
+        System.out.println(result);
+        var ans = new HashMap<String, String>();
+        ans.put("answer", result);
+        return new ResponseEntity<>(ans, HttpStatus.OK);
     }
 
 }
