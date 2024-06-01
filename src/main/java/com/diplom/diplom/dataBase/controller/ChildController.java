@@ -1,6 +1,5 @@
 package com.diplom.diplom.dataBase.controller;
 
-import com.diplom.diplom.dataBase.Dto.Family;
 import com.diplom.diplom.dataBase.entity.Child;
 import com.diplom.diplom.dataBase.service.ChildService;
 import com.diplom.diplom.nlp.dto.NlpClientToDbDto;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 
 @Controller
@@ -26,7 +26,7 @@ public class ChildController {
     @GetMapping(path = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public ResponseEntity<Iterable<Child>> getAllChilds() {
-        return new ResponseEntity<Iterable<Child>>(childService.getAllChilds(), HttpStatus.OK);
+        return new ResponseEntity<Iterable<Child>>(childService.getChildsByPsychologist(), HttpStatus.OK);
     }
 
     @GetMapping(path = "/get/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,6 +39,7 @@ public class ChildController {
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public ResponseEntity sendDataToDb(@RequestBody @Validated NlpClientToDbDto request) {
         childService.sendChild(request);
+        childService.handleChilds();
         return new ResponseEntity(HttpStatus.OK);
     }
 

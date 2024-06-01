@@ -14,8 +14,8 @@
       border-radius: 30px;
       cursor: pointer;
       margin: 0 auto;
-      width: 300px;
-      height: 200px;
+      width: 200px;
+      height: 100px;
     }
 
     .choise button:hover {
@@ -26,6 +26,15 @@
       border-radius: 30px;
       cursor: pointer;
       margin: 0 auto;
+
+    .data-textarea {
+        width: 80%;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 15px;
+        box-sizing: border-box;
+        font-size: 17px;
+    }
     }
   </style>
  </head>
@@ -33,7 +42,6 @@
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="tests" class="nav-link active" aria-current="page">Провести тестирование</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Моё расписание</a></li>
           <li class="nav-item"><a href="childs" class="nav-link">Все дети</a></li>
         </ul>
       </header>
@@ -41,7 +49,7 @@
         <button class="btn btn-light rounded-pill px-1 col-xxl-1" id="psyBackBtn" type="button" onclick="location.href='http://127.0.0.1:8080/psychologist'">Назад</button>
     </div>
     <div class="choise" style="text-align: center; margin-top: 10%;">
-      <textarea class="input-textarea" rows="8" cols="100" id="childsText" ></textarea>
+      <textarea class="data-textarea" rows="8" cols="100" id="childsText" ></textarea>
     </div>
     <div class="choise" style="text-align: center; margin-top: 2%;">
       <button id="сhildsBtn">Получить список детей</button> 

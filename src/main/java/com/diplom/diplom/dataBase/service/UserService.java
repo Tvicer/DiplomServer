@@ -19,9 +19,8 @@ public class UserService {
 
     public boolean createUser(User user) {
         String userEmail = user.getEmail();
-        log.debug("Saving new User with email: {}", userEmail);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_PSYCHOLOGIST");
+        user.setRole("ROLE_USER");
         System.out.println(user.getRole());
         userRepository.save(user);
         return true;

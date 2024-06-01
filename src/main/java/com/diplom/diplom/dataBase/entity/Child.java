@@ -15,5 +15,8 @@ public class Child {
     private String parentAge;
     private String telephone;
     private String address;
+    private String psychologist;
+    private Integer groupNumber;
+    private Boolean badGroup;
     private Float result;
 }
