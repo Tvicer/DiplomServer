@@ -53,7 +53,7 @@ document.getElementById('endButton').addEventListener('click', function() {
         result: result
     };
 
-    var url = 'http://127.0.0.1:8080/nlp/sendToDb'
+    var url = 'http://127.0.0.1:8080/child/post'
     var result
 
     result = fetch(url, {

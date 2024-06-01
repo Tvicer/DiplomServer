@@ -1,5 +1,7 @@
-package com.diplom.diplom.voiceToText;
+package com.diplom.diplom.voiceToText.controller;
 
+import com.diplom.diplom.voiceToText.dto.VoiceToTextDto;
+import com.diplom.diplom.voiceToText.service.VoiceToTextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

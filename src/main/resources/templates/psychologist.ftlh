@@ -10,7 +10,7 @@
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="tests" class="nav-link active" aria-current="page">Провести тестирование</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Моё расписание</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Все дети</a></li>
+          <li class="nav-item"><a href="childs" class="nav-link">Все дети</a></li>
         </ul>
       </header>
       <h1 style="text-align: center; margin-top: 150px;">Добро пожаловать в кабинет психолога</h1>

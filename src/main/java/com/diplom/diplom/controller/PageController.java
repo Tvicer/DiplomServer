@@ -32,15 +32,20 @@ public class PageController {
         userService.createUser(user);
         return "redirect:/login";
     }
+    @GetMapping("/parent")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public String parent(){
+        return "parent";
+    }
     @GetMapping("/psychologist")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String psychologist(){
         return "psychologist";
     }
-    @GetMapping("/parent")
-    @PreAuthorize("hasRole('ROLE_USER')")
-    public String parent(){
-        return "parent";
+    @GetMapping("/childs")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
+    public String childs(){
+        return "childs";
     }
     @GetMapping("/tests")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
