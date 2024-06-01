@@ -1,4 +1,4 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.config;
 
 import feign.Request;
 import org.springframework.context.annotation.Bean;

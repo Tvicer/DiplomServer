@@ -1,4 +1,4 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

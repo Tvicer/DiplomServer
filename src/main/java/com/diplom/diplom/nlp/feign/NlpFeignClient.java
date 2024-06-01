@@ -1,5 +1,7 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.feign;
 
+import com.diplom.diplom.nlp.config.FeignConfig;
+import com.diplom.diplom.nlp.dto.NlpFeignDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;

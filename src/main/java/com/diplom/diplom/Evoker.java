@@ -1,6 +1,6 @@
 package com.diplom.diplom;
 
-import com.diplom.diplom.nlp.NlpService;
+import com.diplom.diplom.nlp.service.NlpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

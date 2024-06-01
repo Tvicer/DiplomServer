@@ -1,4 +1,4 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.dto;
 
 import lombok.Builder;
 import lombok.Data;

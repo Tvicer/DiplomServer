@@ -1,6 +1,6 @@
 package com.diplom.diplom.voiceToText;
 
-import com.diplom.diplom.nlp.FeignConfig;
+import com.diplom.diplom.nlp.config.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;

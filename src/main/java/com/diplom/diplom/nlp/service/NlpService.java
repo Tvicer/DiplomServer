@@ -1,7 +1,11 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.service;
 
 import com.diplom.diplom.dataBase.entity.Child;
 import com.diplom.diplom.dataBase.repository.ChildRepository;
+import com.diplom.diplom.nlp.dto.NlpClientDto;
+import com.diplom.diplom.nlp.feign.NlpFeignClient;
+import com.diplom.diplom.nlp.dto.NlpClientToDbDto;
+import com.diplom.diplom.nlp.dto.NlpFeignDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

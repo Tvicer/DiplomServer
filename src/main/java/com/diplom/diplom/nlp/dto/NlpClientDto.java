@@ -1,7 +1,6 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -9,11 +8,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class NlpClientDto {
     @JsonProperty(value = "tell1")
-    String tell1;
+    public String tell1;
 
     @JsonProperty(value = "tell2")
-    String tell2;
+    public String tell2;
 
     @JsonProperty(value = "tell3")
-    String tell3;
+    public String tell3;
 }

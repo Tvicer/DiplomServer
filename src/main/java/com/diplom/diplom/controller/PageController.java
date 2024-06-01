@@ -1,43 +1,54 @@
 package com.diplom.diplom.controller;
 
+import com.diplom.diplom.dataBase.entity.User;
+import com.diplom.diplom.dataBase.service.UserService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PageController {
-    @GetMapping("/auth")
-    public String auth(){
-        return "auth";
-    }
+    @Autowired
+    UserService userService;
 
     @GetMapping("/login")
     public String login() {
         return "login";
     }
+
     @GetMapping("/registration")
     public String registration() {
         return "registration";
     }
+
+    @PostMapping("/registration")
+    public String createUser(User user) {
+        System.out.println(user.getEmail());
+        userService.createUser(user);
+        return "redirect:/login";
+    }
     @GetMapping("/psychologist")
-    //@PreAuthorize("ROLE_PSYCHOLOGIST")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String psychologist(){
         return "psychologist";
     }
     @GetMapping("/parent")
-    //@PreAuthorize("ROLE_USER")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public String parent(){
         return "parent";
     }
     @GetMapping("/tests")
-    //@PreAuthorize("ROLE_PSYCHOLOGIST")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String tests(){
         return "tests";
     }
     @GetMapping("/test1")
-    //@PreAuthorize("ROLE_PSYCHOLOGIST")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String test1(){
         return "test1";
     }

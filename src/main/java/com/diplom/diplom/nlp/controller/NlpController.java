@@ -1,5 +1,8 @@
-package com.diplom.diplom.nlp;
+package com.diplom.diplom.nlp.controller;
 
+import com.diplom.diplom.nlp.dto.NlpClientDto;
+import com.diplom.diplom.nlp.dto.NlpClientToDbDto;
+import com.diplom.diplom.nlp.service.NlpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,9 +27,9 @@ public class NlpController {
 
     @PostMapping(path = "/sendToNlp", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity sendDataToNlp(@RequestBody @Validated NlpClientDto request) {
-        var result = nlpService.sendToHandleNarration(request);
-        var ans = new HashMap<String, String>();
-        ans.put("answer", result);
+        double result = Double.parseDouble(nlpService.sendToHandleNarration(request));
+        var ans = new HashMap<String, Integer>();
+        ans.put("answer", (int)(result * 100));
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
