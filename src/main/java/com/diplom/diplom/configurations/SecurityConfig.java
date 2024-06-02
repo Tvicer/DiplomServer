@@ -1,6 +1,5 @@
 package com.diplom.diplom.configurations;
 
-import com.diplom.diplom.dataBase.enums.Role;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,7 +10,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -48,24 +46,24 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/registration").permitAll()
                         .requestMatchers("**").authenticated())
                 .formLogin(form -> form
-                .loginPage("/login").permitAll()
-                .successHandler(new AuthenticationSuccessHandler() {
-                    @Override
-                    public void onAuthenticationSuccess(HttpServletRequest request,
-                                                        HttpServletResponse response,
-                                                        Authentication authentication) throws IOException, ServletException {
-                        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-                        var roles = userDetails.getAuthorities();
+                        .loginPage("/login").permitAll()
+                        .successHandler(new AuthenticationSuccessHandler() {
+                            @Override
+                            public void onAuthenticationSuccess(HttpServletRequest request,
+                                                                HttpServletResponse response,
+                                                                Authentication authentication) throws IOException, ServletException {
+                                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+                                var roles = userDetails.getAuthorities();
 
-                        if (Objects.equals(roles.toString(), "[ROLE_PSYCHOLOGIST]"))
-                            response.sendRedirect("/psychologist");
-                        else if (Objects.equals(roles.toString(), "[ROLE_ADMIN]"))
-                            response.sendRedirect("/admin");
-                        else
-                            response.sendRedirect("/parent");
-                    }
-                })
-                .permitAll())
+                                if (Objects.equals(roles.toString(), "[ROLE_PSYCHOLOGIST]"))
+                                    response.sendRedirect("/psychologist");
+                                else if (Objects.equals(roles.toString(), "[ROLE_ADMIN]"))
+                                    response.sendRedirect("/admin");
+                                else
+                                    response.sendRedirect("/parent");
+                            }
+                        })
+                        .permitAll())
                 .build();
     }
 

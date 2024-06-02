@@ -1,6 +1,5 @@
 package com.diplom.diplom.nlp.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

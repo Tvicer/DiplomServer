@@ -15,7 +15,6 @@ public class Evoker {
 
     @EventListener(ApplicationReadyEvent.class)
     public void evoke() {
-        //System.out.println(Double.valueOf(nlpService.sendToHandleTestNarration()));
         System.out.println("hi");
     }
 }

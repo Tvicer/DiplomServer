@@ -13,6 +13,7 @@ import java.util.Optional;
 public class ChildService {
     @Autowired
     ChildRepository childRepository;
+
     @Autowired
     public Iterable<Child> getAllChilds() {
         return childRepository.findAll();
@@ -47,8 +48,8 @@ public class ChildService {
         );
         int i = 0;
         Child lastChild = null;
-        for(Child child : childs) {
-            if(i != 0 && Math.abs(lastChild.getResult() - child.getResult()) > 30)
+        for (Child child : childs) {
+            if (i != 0 && Math.abs(lastChild.getResult() - child.getResult()) > 30)
                 lastChild.setGoodGroup(false);
             child.setGroupNumber(i / GROUP_SIZE);
             child.setGoodGroup(true);
@@ -57,5 +58,4 @@ public class ChildService {
         }
         childRepository.saveAll(childs);
     }
-
 }

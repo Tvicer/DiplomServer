@@ -2,7 +2,6 @@ package com.diplom.diplom.controller;
 
 import com.diplom.diplom.dataBase.entity.User;
 import com.diplom.diplom.dataBase.service.UserService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -39,43 +38,43 @@ public class PageController {
 
     @PostMapping("/admin")
     public String createAdmin(User user) {
-        userService.createAdmin(user);
+        userService.createPsychologist(user);
         return "redirect:/login";
     }
 
     @GetMapping("/parent")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-    public String parent(){
+    public String parent() {
         return "parent";
     }
 
     @GetMapping("/info")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-    public String info(){
+    public String info() {
         return "info";
     }
 
     @GetMapping("/psychologist")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
-    public String psychologist(){
+    public String psychologist() {
         return "psychologist";
     }
 
     @GetMapping("/childs")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
-    public String childs(){
+    public String childs() {
         return "childs";
     }
 
     @GetMapping("/tests")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
-    public String tests(){
+    public String tests() {
         return "tests";
     }
 
     @GetMapping("/test1")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
-    public String test1(){
+    public String test1() {
         return "test1";
     }
 }

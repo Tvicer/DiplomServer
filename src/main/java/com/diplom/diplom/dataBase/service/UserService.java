@@ -1,13 +1,12 @@
 package com.diplom.diplom.dataBase.service;
 
 import com.diplom.diplom.dataBase.entity.User;
-import com.diplom.diplom.dataBase.enums.Role;
 import com.diplom.diplom.dataBase.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +25,7 @@ public class UserService {
         return true;
     }
 
-    public boolean createAdmin(User user) {
+    public boolean createPsychologist(User user) {
         String userEmail = user.getEmail();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("ROLE_PSYCHOLOGIST");

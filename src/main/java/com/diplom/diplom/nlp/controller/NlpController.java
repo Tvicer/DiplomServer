@@ -1,7 +1,6 @@
 package com.diplom.diplom.nlp.controller;
 
 import com.diplom.diplom.nlp.dto.NlpClientDto;
-import com.diplom.diplom.nlp.dto.NlpClientToDbDto;
 import com.diplom.diplom.nlp.service.NlpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +31,7 @@ public class NlpController {
     public ResponseEntity sendDataToNlp(@RequestBody @Validated NlpClientDto request) {
         double result = Double.parseDouble(nlpService.sendToHandleNarration(request));
         var ans = new HashMap<String, Integer>();
-        ans.put("answer", (int)(result * 100));
+        ans.put("answer", (int) (result * 100));
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
