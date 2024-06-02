@@ -73,10 +73,11 @@
         <div class="right-panel">
             <h1 style="text-align: center;">Регистрация нового психолога</h1>
             <form class="input-section" action="/admin" method="post">
-                Эл. почта: <input class="input-textarea" type="email" name="email"><br><br>
+                ФИО: <input class="input-textarea" type="fio" name="fio"><br><br>
+                Адрес электронной почты: <input class="input-textarea" type="email" name="email"><br><br>
                 Пароль: <input class="input-textarea" type="password" name="password"><br><br>
                 <button class="submit-button" type="submit">Зарегистрировать</button><br>
-                <a href="/login">Назад</a>
+                <a href="/admin">Назад</a>
             </form>
         </div>
     </div>

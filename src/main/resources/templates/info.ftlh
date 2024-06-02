@@ -16,10 +16,11 @@
  </head>
  <body>
     <header class="d-flex justify-content-center py-3">
-        <ul class="nav nav-pills">
-          <li class="nav-item"><a href="/info" class="nav-link active" aria-current="page">Информация</a></li>
-        </ul>
-      </header>
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a href="/parent-schedule" class="nav-link active" aria-current="page">Записаться на приём</a></li>
+              <li class="nav-item"><a href="/info" class="nav-link">Информация</a></li>
+            </ul>
+        </header>
     <div class="col-xxl-8 my-3 mx-3">
         <button class="btn btn-light rounded-pill px-1 col-xxl-1" id="psyBackBtn" type="button" onclick="location.href='/parent'">Назад</button>
     </div>

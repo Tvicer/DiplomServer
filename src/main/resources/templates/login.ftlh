@@ -74,7 +74,7 @@
         <div class="right-panel">
             <h1 style="text-align: center;">Авторизация</h1>
             <form class="input-section" action="/login" method="post">
-                Эл. почта: <input class="input-textarea" type="email" name="username"><br><br>
+                Адрес электронной почты: <input class="input-textarea" type="email" name="username"><br><br>
                 Пароль: <input class="input-textarea" type="password" name="password"><br><br>
                 <button class="submit-button" type="submit">Войти</button><br>
                 <a href="/registration">Зарегистрироваться</a>

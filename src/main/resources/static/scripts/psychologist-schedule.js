@@ -1,22 +1,8 @@
-var childsText = document.getElementById('childsText')
-
-var url = 'http://127.0.0.1:8080/child/get'
-
+var url = 'http://127.0.0.1:8080/schedule/get';
 const columnMappings = {
-    "fio": "ФИО",
-    "childAge": "Возраст ребёнка",
-    "parentAge": "Возраст родителя",
-    "telephone": "Номер телефона",
-    "address": "Адрес",
-    "psychologist": "Email психолога",
-    "groupNumber": "Номер группы",
-    "goodGroup": "Подходит для данный группы",
-    "result": "Итоговый балл"
-};
-
-const goodGroupValues = {
-    true: "Да",
-    false: "Нет"
+    "parentFio": "ФИО родителя",
+    "parentEmail": "Email родителя",
+    "dateTime": "Дата и время"
 };
 
 fetch(url)
@@ -27,8 +13,9 @@ fetch(url)
     table.style.width = '80%';
     table.style.margin = '0 auto';
     table.style.borderCollapse = 'collapse';
+    table.style.border = '1px solid black';
 
-    const headers = Object.keys(data[0]);
+    const headers = Object.keys(data[0]).filter(header => header !== 'id' && header !== 'psychologistEmail');
     const headerRow = table.insertRow();
     headers.forEach(headerText => {
         const header = document.createElement('th');
@@ -45,16 +32,13 @@ fetch(url)
         const row = table.insertRow();
         headers.forEach(header => {
             const cell = row.insertCell();
-            const text = header === 'goodGroup' ? document.createTextNode(goodGroupValues[obj[header]]) : document.createTextNode(obj[header]);
+            const text = document.createTextNode(obj[header]);
             cell.appendChild(text);
             cell.style.padding = '10px';
             cell.style.textAlign = 'center';
             cell.style.border = '1px solid black';
         });
     });
-
-    table.style.border = '1px solid black';
-    table.style.borderCollapse = 'collapse';
 
     document.body.appendChild(table);
   })

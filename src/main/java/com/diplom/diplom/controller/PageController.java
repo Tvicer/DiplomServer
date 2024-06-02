@@ -54,6 +54,12 @@ public class PageController {
         return "info";
     }
 
+    @GetMapping("/parent-schedule")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    public String parentSchedule() {
+        return "parent-schedule";
+    }
+
     @GetMapping("/psychologist")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
     public String psychologist() {
@@ -64,6 +70,12 @@ public class PageController {
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
     public String childs() {
         return "childs";
+    }
+
+    @GetMapping("/psychologist-schedule")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
+    public String psychologistSchedule() {
+        return "psychologist-schedule";
     }
 
     @GetMapping("/tests")

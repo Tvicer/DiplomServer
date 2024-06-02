@@ -8,7 +8,8 @@
  <body>
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a href="/info" class="nav-link active" aria-current="page">Информация</a></li>
+          <li class="nav-item"><a href="/parent-schedule" class="nav-link active" aria-current="page">Записаться на приём</a></li>
+          <li class="nav-item"><a href="/info" class="nav-link">Информация</a></li>
         </ul>
       </header>
     <h1 style="text-align: center; margin-top: 150px;">Добро пожаловать в кабинет родителя</h1>

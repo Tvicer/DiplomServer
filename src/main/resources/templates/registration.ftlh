@@ -73,7 +73,8 @@
         <div class="right-panel">
             <h1 style="text-align: center;">Регистрация</h1>
             <form class="input-section" action="/registration" method="post">
-                Эл. почта: <input class="input-textarea" type="email" name="email"><br><br>
+                ФИО: <input class="input-textarea" type="fio" name="fio"><br><br>
+                Адрес электронной почты: <input class="input-textarea" type="email" name="email"><br><br>
                 Пароль: <input class="input-textarea" type="password" name="password"><br><br>
                 <button class="submit-button" type="submit">Зарегистрироваться</button><br>
                 <a href="/login">Назад</a>

@@ -42,6 +42,7 @@
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="tests" class="nav-link active" aria-current="page">Провести тестирование</a></li>
+          <li class="nav-item"><a href="psychologist-schedule" class="nav-link">Расписание</a></li>
           <li class="nav-item"><a href="childs" class="nav-link">Все дети</a></li>
         </ul>
       </header>

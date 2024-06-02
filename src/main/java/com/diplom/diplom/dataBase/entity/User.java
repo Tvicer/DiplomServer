@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "users")
-public class User {// implements UserDetails {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -14,6 +14,9 @@ public class User {// implements UserDetails {
 
     @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "fio")
+    private String fio;
 
     @Column(name = "password", length = 1000)
     private String password;
