@@ -48,12 +48,6 @@
     <div class="col-xxl-8 my-3 mx-3">
         <button class="btn btn-light rounded-pill px-1 col-xxl-1" id="psyBackBtn" type="button" onclick="location.href='http://127.0.0.1:8080/psychologist'">Назад</button>
     </div>
-    <div class="choise" style="text-align: center; margin-top: 10%;">
-      <textarea class="data-textarea" rows="8" cols="100" id="childsText" ></textarea>
-    </div>
-    <div class="choise" style="text-align: center; margin-top: 2%;">
-      <button id="сhildsBtn">Получить список детей</button> 
-    </div>
       <script src="scripts/childs.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
  </body>

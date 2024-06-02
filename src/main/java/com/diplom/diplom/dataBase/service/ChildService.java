@@ -4,7 +4,6 @@ import com.diplom.diplom.dataBase.entity.Child;
 import com.diplom.diplom.dataBase.repository.ChildRepository;
 import com.diplom.diplom.nlp.dto.NlpClientToDbDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +14,19 @@ public class ChildService {
     @Autowired
     ChildRepository childRepository;
     @Autowired
-
     public Iterable<Child> getAllChilds() {
         return childRepository.findAll();
     }
+
+    Integer GROUP_SIZE = 10;
 
     public Optional<Child> getChildById(Integer id) {
         return childRepository.findById(id);
     }
 
     public Iterable<Child> getChildsByPsychologist() {
-        return childRepository.getByPsychologist(SecurityContextHolder.getContext().getAuthentication().getName());
+        return childRepository.findByPsychologistOrderByGroupNumber(
+                SecurityContextHolder.getContext().getAuthentication().getName());
     }
 
     public void sendChild(NlpClientToDbDto request) {
@@ -41,14 +42,16 @@ public class ChildService {
     }
 
     public void handleChilds() {
-        Iterable<Child> childs = childRepository.findByPsychologistOrderByResult(SecurityContextHolder.getContext().getAuthentication().getName());
+        Iterable<Child> childs = childRepository.findByPsychologistOrderByResult(
+                SecurityContextHolder.getContext().getAuthentication().getName()
+        );
         int i = 0;
         Child lastChild = null;
         for(Child child : childs) {
             if(i != 0 && Math.abs(lastChild.getResult() - child.getResult()) > 30)
-                lastChild.setBadGroup(true);
-            child.setGroupNumber(i / 2); // отмаркировать, если сильный разрыв
-            lastChild.setBadGroup(false);
+                lastChild.setGoodGroup(false);
+            child.setGroupNumber(i / GROUP_SIZE);
+            child.setGoodGroup(true);
             lastChild = child;
             i++;
         }

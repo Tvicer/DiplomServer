@@ -8,8 +8,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class NlpClientToDbDto {
     String fio;
-    String childAge;
-    String parentAge;
+    Integer childAge;
+    Integer parentAge;
     String telephone;
     String address;
     Float result;

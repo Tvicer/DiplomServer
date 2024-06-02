@@ -26,6 +26,7 @@ public class ChildController {
     @GetMapping(path = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public ResponseEntity<Iterable<Child>> getAllChilds() {
+        childService.handleChilds();
         return new ResponseEntity<Iterable<Child>>(childService.getChildsByPsychologist(), HttpStatus.OK);
     }
 

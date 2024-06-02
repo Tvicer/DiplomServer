@@ -37,21 +37,31 @@ public class PageController {
     public String parent(){
         return "parent";
     }
+
+    @GetMapping("/info")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public String info(){
+        return "info";
+    }
+
     @GetMapping("/psychologist")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String psychologist(){
         return "psychologist";
     }
+
     @GetMapping("/childs")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String childs(){
         return "childs";
     }
+
     @GetMapping("/tests")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String tests(){
         return "tests";
     }
+
     @GetMapping("/test1")
     @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
     public String test1(){

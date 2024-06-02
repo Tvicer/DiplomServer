@@ -48,7 +48,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/registration").permitAll()
                         .requestMatchers("**").authenticated())
                 .formLogin(form -> form
-                .loginPage("/login")
+                .loginPage("/login").permitAll()
                 .successHandler(new AuthenticationSuccessHandler() {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest request,

@@ -8,12 +8,9 @@
  <body>
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
-          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Информация</a></li>
+          <li class="nav-item"><a href="/info" class="nav-link active" aria-current="page">Информация</a></li>
         </ul>
       </header>
-    <div class="col-xxl-8 my-3 mx-3">
-        <button class="btn btn-light rounded-pill px-1 col-xxl-1" id="psyBackBtn" type="button" onclick="location.href='/auth'">Назад</button>
-    </div>
     <h1 style="text-align: center; margin-top: 150px;">Добро пожаловать в кабинет родителя</h1>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
  </body>

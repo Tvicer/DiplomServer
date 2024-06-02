@@ -11,12 +11,12 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String fio;
-    private String childAge;
-    private String parentAge;
+    private Integer childAge;
+    private Integer parentAge;
     private String telephone;
     private String address;
     private String psychologist;
     private Integer groupNumber;
-    private Boolean badGroup;
+    private Boolean goodGroup;
     private Float result;
 }
