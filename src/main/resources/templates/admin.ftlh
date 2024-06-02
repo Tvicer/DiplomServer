@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
+    <title>Регистрация психолога</title>
     <style>
     body {
         margin: 0;
@@ -71,11 +71,11 @@
 <body>
     <div class="container">
         <div class="right-panel">
-            <h1 style="text-align: center;">Регистрация</h1>
-            <form class="input-section" action="/registration" method="post">
+            <h1 style="text-align: center;">Регистрация нового психолога</h1>
+            <form class="input-section" action="/admin" method="post">
                 Эл. почта: <input class="input-textarea" type="email" name="email"><br><br>
                 Пароль: <input class="input-textarea" type="password" name="password"><br><br>
-                <button class="submit-button" type="submit">Зарегистрироваться</button><br>
+                <button class="submit-button" type="submit">Зарегистрировать</button><br>
                 <a href="/login">Назад</a>
             </form>
         </div>

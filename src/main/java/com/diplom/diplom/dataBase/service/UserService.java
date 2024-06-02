@@ -25,4 +25,13 @@ public class UserService {
         userRepository.save(user);
         return true;
     }
+
+    public boolean createAdmin(User user) {
+        String userEmail = user.getEmail();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("ROLE_PSYCHOLOGIST");
+        System.out.println(user.getRole());
+        userRepository.save(user);
+        return true;
+    }
 }

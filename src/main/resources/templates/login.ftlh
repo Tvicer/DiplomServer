@@ -67,6 +67,7 @@
         margin: 0 auto;
     }
     </style>
+    <#import "/spring.ftl" as spring/>
 </head>
 <body>
     <div class="container">

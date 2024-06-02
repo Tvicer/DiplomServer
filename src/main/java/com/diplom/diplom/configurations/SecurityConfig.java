@@ -59,6 +59,8 @@ public class SecurityConfig {
 
                         if (Objects.equals(roles.toString(), "[ROLE_PSYCHOLOGIST]"))
                             response.sendRedirect("/psychologist");
+                        else if (Objects.equals(roles.toString(), "[ROLE_ADMIN]"))
+                            response.sendRedirect("/admin");
                         else
                             response.sendRedirect("/parent");
                     }

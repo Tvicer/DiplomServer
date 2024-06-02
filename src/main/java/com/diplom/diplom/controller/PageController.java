@@ -28,42 +28,53 @@ public class PageController {
 
     @PostMapping("/registration")
     public String createUser(User user) {
-        System.out.println(user.getEmail());
         userService.createUser(user);
         return "redirect:/login";
     }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
+
+    @PostMapping("/admin")
+    public String createAdmin(User user) {
+        userService.createAdmin(user);
+        return "redirect:/login";
+    }
+
     @GetMapping("/parent")
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public String parent(){
         return "parent";
     }
 
     @GetMapping("/info")
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public String info(){
         return "info";
     }
 
     @GetMapping("/psychologist")
-    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
     public String psychologist(){
         return "psychologist";
     }
 
     @GetMapping("/childs")
-    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
     public String childs(){
         return "childs";
     }
 
     @GetMapping("/tests")
-    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
     public String tests(){
         return "tests";
     }
 
     @GetMapping("/test1")
-    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST')")
+    @PreAuthorize("hasRole('ROLE_PSYCHOLOGIST') or hasRole('ROLE_ADMIN')")
     public String test1(){
         return "test1";
     }
