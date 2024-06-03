@@ -5,6 +5,7 @@ var url = 'http://127.0.0.1:8080/child/get'
 const columnMappings = {
     "fio": "ФИО",
     "childAge": "Возраст ребёнка",
+    "parentFio": "ФИО родителя",
     "parentAge": "Возраст родителя",
     "telephone": "Номер телефона",
     "address": "Адрес",

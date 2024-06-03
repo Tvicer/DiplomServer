@@ -12,7 +12,8 @@
             <button class="back-button" id="psyBackBtn" type="button" onclick="location.href='/psychologist'">Назад</button>
             <input type="text" placeholder="ФИО ребёнка" id="fio">
             <input type="text" placeholder="Возраст ребёнка" id="childAge">
-            <input type="text" placeholder="ФИО родителя" id="parentAge">
+            <input type="text" placeholder="ФИО родителя" id="parentFio">
+            <input type="text" placeholder="Возраст родителя" id="parentAge">
             <input type="text" placeholder="Номер телефона родителя" id="telephone">
             <input type="text" placeholder="Домашний адрес" id="address">
         </div>

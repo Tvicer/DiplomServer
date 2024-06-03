@@ -14,8 +14,6 @@ public class Evoker {
     @Autowired
     NlpService nlpService;
 
-    @Autowired
-    UserService userService;
 
     @EventListener(ApplicationReadyEvent.class)
     public void evoke() {

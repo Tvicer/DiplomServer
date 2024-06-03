@@ -12,6 +12,7 @@ public class Child {
     private Integer id;
     private String fio;
     private Integer childAge;
+    private String parentFio;
     private Integer parentAge;
     private String telephone;
     private String address;

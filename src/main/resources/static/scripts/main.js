@@ -39,6 +39,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
 document.getElementById('endButton').addEventListener('click', function() {
     var fio = document.getElementById('fio').value;
     var childAge = document.getElementById('childAge').value;
+    var parentFio = document.getElementById('parentFio').value;
     var parentAge = document.getElementById('parentAge').value;
     var telephone = document.getElementById('telephone').value;
     var address = document.getElementById('address').value;
@@ -47,6 +48,7 @@ document.getElementById('endButton').addEventListener('click', function() {
     var data = {
         fio: fio,
         childAge: childAge,
+        parentFio: parentFio,
         parentAge: parentAge,
         telephone: telephone,
         address: address,
